@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="src/Axitor.PointInTime/Axitor.PointInTime.csproj" />
+  <Project Path="tests/Axitor.PointInTime.Tests/Axitor.PointInTime.Tests.csproj" />
+  <Project Path="bench/Axitor.PointInTime.Benchmarks/Axitor.PointInTime.Benchmarks.csproj" />
+  <Project Path="samples/Axitor.PointInTime.Samples.MarketData/Axitor.PointInTime.Samples.MarketData.csproj" />
+</Solution>

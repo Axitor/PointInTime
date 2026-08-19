@@ -1,0 +1,43 @@
+<Project>
+  <PropertyGroup>
+    <Title>PointInTime</Title>
+    <Authors>Daniel Lebedev</Authors>
+    <Company>Axitor</Company>
+    <Copyright>Copyright © 2026 Axitor.net</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/Axitor/PointInTime</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Axitor/PointInTime</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Description>Allocation-free point-in-time alignment of irregular time series.</Description>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <UseArtifactsOutput>true</UseArtifactsOutput>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <InvariantGlobalization>true</InvariantGlobalization>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <_ProjectPath>$(MSBuildProjectDirectory.Replace('\','/'))</_ProjectPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$(_ProjectPath.Contains('/src/'))">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <IsAotCompatible>true</IsAotCompatible>
+    <IsTrimmable>true</IsTrimmable>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="$(_ProjectPath.Contains('/tests/')) Or $(_ProjectPath.Contains('/bench/')) Or $(_ProjectPath.Contains('/samples/'))">
+    <IsPackable>false</IsPackable>
+    <IsAotCompatible>false</IsAotCompatible>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+</Project>
